@@ -1,0 +1,2569 @@
+/* default styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #332332;
+    overflow-x: hidden;
+    color: #ffffff;
+    font-size: 1.3em; /* 1em = 16px, and this will be the minimum size for body text for better readability */
+    line-height: 1.6; /* Line height for better readability */
+    font-family: "Roboto", serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif; /* inspired by Aracne */
+    font-weight: 700;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* styling for the main header/nav bar on the main page, index.html */
+.header-container {
+    display: flex; /* flexbox */
+    justify-items: center;
+    justify-content: space-between;
+    position: fixed; /* stays fixed at the top of the page while scrolling */
+    top: 0;
+    left: 0; /* at the very top of the page */
+    width: 100%; /* covers all page */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    /* background-color: rgba(0, 0, 0, 0.5); this gives me a 50% transparent background which is what I want because of the glass and video - got help from w3schools */
+    color: #ffffff;
+    /* font-weight: bold; */
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    z-index: 999; /* will place the element at a higher stack order */
+    box-shadow: 1px 10px 10px rgba(1, 1, 1, 0.3); /* I wanted a shadow so my nav looks more 3D/interactive */
+}
+
+/* Logo styling */
+.logo {
+    z-index: 9999; /* ensures the element is at the top layer, visible in front of other elements */
+    width: 120px;
+    height: 100px;
+    padding: 10px;
+    height: auto;
+    margin: 0;
+}
+
+.nav-links {
+    display: grid; /* grid */
+    grid-template-columns: 1fr;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.nav-links ul {
+    list-style-type: none;
+}
+
+.nav-links li {
+    list-style: none; /* no decoration */
+    /* padding: 16px; */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 16px;
+}
+
+.nav-links li:hover {
+    background-color: #C71585;
+    border-radius: 10px;
+}
+
+.nav-links li.active a {
+    color: #C71585;
+    font-weight: bolder;
+}
+
+/* hamburger menu - got help from threkk.medium.com (CSS only hamburger menu) */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+}
+
+/* since it is mobile mode => display it as a vertical list */
+.navigation ul {
+    display: block;
+}
+
+/* We have two lists: the first one are the always visibile items in the menu bar. The second one is the one that will be hidden */
+.navigation ul:last-child {
+    width: 100%;
+}
+
+.navigation ul li {
+    /* width: 100%; */
+    text-align: center;
+    padding: 0.5em;
+}
+
+/* so that the checkbox is not actually displayed */
+input[type='checkbox']:not(:checked)+ul {
+    display: none;
+}
+
+nav input[type='checkbox'], nav label {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .nav-links {
+    display: block;
+    position: absolute;
+    top: 80px; /* Positioning below the header */
+    width: 100%;
+    left: 0;
+    background-color: #000;
+    z-index: 999;
+}
+
+/* hamburger menu icon styling -> lot of trial and error here */
+.ham {
+    display: block;
+    cursor: pointer;
+    max-width: 80px;
+    z-index: 9999;
+    margin: 0;
+}
+
+/* skip menu styling so that it is not visible */
+.skip-link {
+    position: absolute;
+    top: -10000px; /* Off-screen */
+    left: 0;
+    padding: 10px;
+    text-decoration: none;
+    z-index: 1000; /* Ensuring it's above all other elements */
+}
+
+/* only visible when pressing tab */
+.skip-link:focus {
+    top: 20px; /* Adjust to position it at the top of the page */
+    left: 20px; /* Adjust for spacing from the left */
+    font-weight: bold;
+    text-decoration: underline; /* underlines it */
+    background-color: #000000; /* for better visibility */
+    color: #ffffff; /* visibility */
+}
+
+#title-page {
+    width: 100%; /* full width */
+    height: 100vh; /* visible area of the browser window - I want this div the entire height of the screen */
+    position: relative;
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* in the middle */
+    margin-bottom: 0px;
+}
+
+/* glass images styling - I don't want it displayed mobile view as it doesn't scale tiny well */
+#glassTop, #glassBottom {
+    /* position: absolute;
+    width: 100%; full width
+    left: 0;
+    z-index: -1; set to -1 so that it is behind the text, but above the video */
+    display: none;
+}
+
+/* #glassTop {
+    top: 80px; Need it down a bit so the nav bar is not blocking the view
+}
+
+#glassBottom {
+    bottom: 0; at bottom of the div - line up with bottom of the video
+}
+
+#glassTop img, #glassBottom img {
+    display: block;
+    width: 100%; full width
+    height: auto;
+} */
+
+/* Arcane letter styling - on top of the video */
+.mainContent {
+    text-align: center; /* centered horizontally */
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* lines up in the middle */
+}
+
+#letters {
+    width: 60%; /* makes it only take up 50% of the mainContent width */
+    display: flex; /* flexbox */
+    justify-content: center; /* centered vertically */
+}
+
+/* league of legends logo styling */
+#lolLogo {
+    width: 40%; /* makes it only take up 20% of the mainContent width */
+    margin: 10px 0 10px 0;
+}
+
+/* video styling */
+.trailer {
+    position: absolute; /* I need it to go behind other content */
+    top: 0;
+    left: 0; /* top left corner */
+    width: 100%; /* full width */
+    height: 100%; /* full height */
+    object-fit: cover; /* fill without distorting */
+    z-index: -2; /* behind everything else */
+}
+
+/* This is if I want there to be a background image instead of just getting rid of the video */
+/* .trailer-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    display: none; /* default is hidden, shown only if reduced motion
+} */
+
+/* This is a prefer reduced motion setting where I stopped the trailer and put a background image instead */
+@media (prefers-reduced-motion: reduce) {
+    .trailer {
+      display: none;
+    }
+
+    /* This is if I want to put a background image isntead */
+    /* .trailer-image {
+      display: block;
+    } */
+}
+
+.home-title {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+#synopsis-section {
+    background-color: #332332; /* going for the Arcane color palette - dark, moody purple to portray angst and mystery */
+    color: #ffffff;
+    width: 100%; /* full width */
+    padding: 40px;
+    display: flex; /* flexbox */
+    justify-content: center;
+    align-items: center;
+}
+
+.synopsis-container {
+    max-width: 100%;
+    width: 90%; /* I don't want it to go the full width */
+    line-height: 1.6;
+    text-align: center; /* keeps the text flush left */
+}
+
+.synopsis-container h2 {
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.7em;
+    /* border-bottom: 2px solid #910060; creates a bold underline */
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.synopsis-container ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-position: outside; /* specifies the position of the marker (i.e., bullet point) */
+}
+
+/* Card section styling */
+.exploreh2 {
+    color: #CCCCCC;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.7em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+#character-cards-section {
+    display: grid; /* grid */
+    grid-template-columns: 1fr;
+    justify-content: center;
+    background-color: #332332; /* Arcane color palette */
+    padding: 60px 20px;
+}
+
+/* Container for the cards */
+.character-cards-container {
+    background-color: #332332; /* Arcane color palette */
+    display: grid; /* flexbox */
+    justify-content: center;
+    gap: 20px; /* gap between each card */
+    flex-wrap: wrap; /* If the container isn’t wide enough to fit all 3 cards, they’ll move onto a new line instead of overflowing/shrinking. */
+}
+
+/* card styling => each card has the same styling, but their background images are different, so I had to name them all seperate */
+.character-card, .divedeeper-card, .quiz-card {
+    width: 300px; /* set width of the card */
+    height: 400px; /* set height of the card */
+    border-radius: 16px; /* curved */
+    color: #ffffff; /* white text */
+    text-decoration: none;
+    display: flex; /* flexbox */
+    flex-direction: column;
+    justify-content: flex-end; /* ensures text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden; /* hides any content that spills outside the card's edges */
+    box-shadow: 0 4px 12px #260e2b; /* I wanted a slight shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box-shadow is 0.3s and it eases into it - makes the hover/'pop out' transition smoother - got help from w3schools */
+}
+
+.character-card:hover, .divedeeper-card:hover, .quiz-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.character-card h3, .divedeeper-card h3, .quiz-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bolder;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.character-card p, .divedeeper-card p, .quiz-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards - got help from stackoverflow */
+.character-card::before, .divedeeper-card::before, .quiz-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts the gradient above image but below text */
+    border-radius: 16px;
+}
+
+.character-card {
+    background-image: url("../images/mask.jpg"); /* image for my character page link card */
+}
+
+.divedeeper-card {
+    background-image: url("../images/peopleandcore.jpeg"); /* image for my Dive Deeper page link card */
+}
+
+.quiz-card {
+    background-image: url("../images/quizimage.webp"); /* image for my Quiz page link card */
+}
+
+/* Ensure text is above the gradient */
+.character-card h3, .character-card p, .divedeeper-card h3, .divedeeper-card p, .quiz-card h3, .quiz-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+
+
+/* Other pages main styling */
+#other-main {
+    padding-top: 100px; /* Adjust based on nav height */
+}
+
+
+
+/* Character page styling */
+.charactersh1 {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+/* Section styling */
+#cards-section {
+    background-color: #332332;
+    padding: 40px 20px;
+    display: grid; /* flexbox */
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+/* Container for the cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-items: center;
+    justify-self: center;
+    align-items: center;
+}
+
+/* card styling */
+/* each card has the same styling, but their background images are different, so I had to name them all seperate */
+.jinx-card, .vi-card, .vander-card, .silco-card, .jayce-card, .viktor-card, .heimerdinger-card, .ekko-card, .mel-card,
+.caitlyn-card, .sevika-card, .isha-card, .ambessa-card, .maddie-card, .singed-card {
+    width: 300px;
+    height: 400px;
+    border-radius: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+.jinx-card:hover, .vi-card:hover, .vander-card:hover, .silco-card:hover, .jayce-card:hover, .viktor-card:hover, .heimerdinger-card:hover,
+.ekko-card:hover, .mel-card:hover, .caitlyn-card:hover, .sevika-card:hover, .isha-card:hover, .ambessa-card:hover,
+.maddie-card:hover, .singed-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.jinx-card h2, .vi-card h2, .vander-card h2, .silco-card h2, .jayce-card h2, .viktor-card h2, .heimerdinger-card h2, .ekko-card h2, .mel-card h2,
+.caitlyn-card h2, .sevika-card h2, .isha-card h2, .ambessa-card h2, .maddie-card h2, .singed-card h2 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 16px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards */
+.jinx-card::before, .vi-card::before, .vander-card::before, .silco-card::before, .jayce-card::before, .viktor-card::before, .heimerdinger-card::before,
+.ekko-card::before, .mel-card::before, .caitlyn-card::before, .sevika-card::before, .isha-card::before, .ambessa-card::before,
+.maddie-card::before, .singed-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts gradient above image but below text */
+    border-radius: 16px;
+}
+
+/* paths to the 15 character images */
+.jinx-card {
+    background-image: url("../images/jinx.jpg");
+}
+
+.vi-card {
+    background-image: url("../images/vi.jpg");
+}
+
+.vander-card {
+    background-image: url("../images/vander.jpg");
+}
+
+.silco-card {
+    background-image: url("../images/silco.jpg");
+}
+
+.jayce-card {
+    background-image: url("../images/jayce.jpg");
+}
+
+.viktor-card {
+    background-image: url("../images/viktor.jpg");
+}
+
+.ekko-card {
+    background-image: url("../images/ekko.jpg");
+}
+
+.heimerdinger-card {
+    background-image: url("../images/heimerdinger.jpg");
+}
+
+.mel-card {
+    background-image: url("../images/mel2.jpg");
+}
+
+.caitlyn-card {
+    background-image: url("../images/caitlyn.jpg");
+}
+
+.sevika-card {
+    background-image: url("../images/sevika.jpg");
+}
+
+.isha-card {
+    background-image: url("../images/isha.jpg");
+}
+
+.ambessa-card {
+    background-image: url("../images/ambessa.jpg");
+}
+
+.maddie-card {
+    background-image: url("../images/maddie.jpg");
+}
+
+.singed-card {
+    background-image: url("../images/singed.jpg");
+}
+
+/* Ensure text is above the gradient overlay */
+.jinx-card h2, .vi-card h2, .vander-card h2, .silco-card h2, .jayce-card h2, .viktor-card h2, .heimerdinger-card h2, .ekko-card h2, .mel-card h2,
+.caitlyn-card h2, .sevika-card h2, .isha-card h2, .ambessa-card h2, .maddie-card h2, .singed-card h2, .jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+
+
+/* analysis page styling */
+.analysis-main {
+    padding-top: 100px; /* Adjusted based on nav height */
+}
+
+.analysish1 {
+    text-align: center; /* center horizontally */
+    justify-self: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 80%;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+.analysis-title {
+    text-align: center;
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.4em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.analysis-cards-container {
+    display: grid;
+    grid-template-columns: repeat(1fr); /* 1 column repeating */
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+    width: 100%; /* full width of screen */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sisters-card, .theme-card, .visuals-card, .science-card, .trauma-card, .divide-card, .power-card, .innovation-card, .revolution-card {
+    width: 100%;
+    width: 350px; /* Set a fixed width for all cards */
+    height: 400px; /* Set a fixed height for all cards */
+    text-align: start;
+    border-radius: 16px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 20px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* changes the cursor to a hand icon */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+/* Make the link area fill the entire card */
+.card-link {
+    display: block;
+    text-decoration: none; /* Remove default link underline */
+}
+
+/* Remove underline for visited links */
+.card-link:visited {
+    text-decoration: none; /* Ensure visited links also don't have an underline */
+}
+
+.sisters-card:hover, .theme-card:hover, .visuals-card:hover, .science-card:hover, .trauma-card:hover, .divide-card:hover, .power-card:hover,
+.innovation-card:hover, .revolution-card:hover {
+    transform: scale(1.03); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+.sisters-card h2, .theme-card h2, .visuals-card h2, .science-card h2, .trauma-card h2, .divide-card h2, .power-card h2, .innovation-card h2,
+.revolution-card h2 {
+    margin: 0;
+    color: #ac5ea7;
+    font-size: 31.2px; /* even though I had h3 set to 1.5em, these h3's kept having a size of 37.4, so I set their size to the other h3's*/
+}
+
+.sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    margin: 5px 0 0;
+    font-size: 1rem; /* 16px */
+}
+
+/* Individual background images for the cards */
+.sisters-card {
+    background-image: url("../images/jinxvVianalysis.jpg");
+}
+
+.theme-card {
+    background-image: url("../images/muraljinx.webp");
+}
+
+.visuals-card {
+    background-image: url("../images/wallArt.jpeg");
+}
+
+.science-card {
+    background-image: url("../images/bluesparkles.jpeg");
+}
+
+.trauma-card {
+    background-image: url("../images/powdercrying.jpg");
+}
+
+.divide-card {
+    background-image: url("../images/cityoverlook.jpg");
+}
+
+.power-card {
+    background-image: url("../images/melcity.jpeg");
+}
+
+.innovation-card {
+    background-image: url("../images/core.avif");
+}
+
+.revolution-card {
+    background-image: url("../images/rebellion.jpg");
+}
+
+.sisters-card::before, .theme-card::before, .visuals-card::before, .science-card::before, .trauma-card::before, .divide-card::before,
+.power-card::before, .innovation-card::before, .revolution-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* below text but above gradiant */
+    border-radius: 16px;
+}
+
+.sisters-card h2, .theme-card h2, .visuals-card h2, .science-card h2, .trauma-card h2, .divide-card h2, .power-card h2, .innovation-card h2,
+.revolution-card h2, .sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    position: relative;
+    z-index: 2; /* above gradiant */
+}
+
+.analysis-img {
+    max-width: 500px;
+}
+
+/* image grid for the pictures on the analysis pages */
+.image-grid {
+    display: grid; /* grid */
+    grid-template-columns: 1fr; /* I want it to have 1 picture for mobile */
+    gap: 20px; /* gap between items */
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 300px; /* Let it adjust naturally */
+    display: block;
+    object-fit: cover;
+    border-radius: 8px; /* cruved corners */
+}
+
+.caption-title {
+    font-size: 1.1em;
+}
+
+/* Style for the text blocks in the grid (after the 3 pictures) */
+.stage-text {
+    grid-column: span 1; /* spans 1 column for the mobile view */
+    background-color: #19131b; /* dark background for contrast - staying on the purple theme */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px; /* curved corners */
+    font-size: 1em; /* 16px */
+    line-height: 1.6;
+    box-shadow: 0 4px 12px #260e2b; /* shadow */
+}
+
+.summary {
+    padding: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+
+/* quiz page styling */
+.question-page {
+    display: none; /* question pages (hidden by default) because I want 1 question on each page */
+}
+
+.quiz-screen {
+    display: none;
+    flex-direction: column; /* when it's displayed = vertical */
+    align-items: center; /* in the center of the screen */
+    justify-content: center; /* in the center of the screen */
+    min-height: 100vh; /* fills the screen */
+    text-align: center; /* centered text */
+}
+
+.quiz-screen.active {
+    display: flex; /* when displayed, flexbox */
+}
+
+.question-page h2 {
+    font-size: 1.6em; /* changed size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+/* Results container */
+.result-container {
+    display: none; /* result page is hidden by default */
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #C71585; /* matching the buttons to the nav bar color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer; /* when cursor is on button = hand/pointer */
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px; /* curved edges */
+}
+
+button:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+.quiz-def {
+    padding: 30px; /* I didn't want it up against the sides */
+    margin-top: 40px;
+}
+
+/* matching the button to the next button color/style */
+.submit-btn {
+    background-color: #C71585;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+label {
+    margin-bottom: 10px; /* adds 10 pixels of space below each label */
+    display: block;
+    font-size: 1.2em;
+    width: 85%;
+    margin: 10px auto; /* center horizontally + spacing between labels */
+    padding: 10px;
+}
+
+input[type="radio"] {
+    transform: scale(1.5); /* scale it up */
+    margin-right: 10px; /* I wanted some room between the radio button and the label text */
+}
+
+.quiz-screen, .question-page, .result-page {
+    display: none; /* hidden by default */
+}
+
+.quiz-screen.active, .question-page.active, .result-page.active {
+    display: flex; /* when active, flexbox display */
+    flex-direction: column; /* vertical */
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh; /* takes up whole screen */
+    text-align: center;
+}
+
+.result-container {
+    display: none; /* Initially hidden */
+    font-size: 1.5em;
+    padding: 30px;
+}
+
+.result-container.active {
+    display: block; /* Show when active */
+}
+
+.result-container img {
+    max-width: 50%; /* can only get this big */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;  /* Adds space below the image */
+}
+
+.result-container h2 {
+    font-size: 1.2em; /* smaller than default h3 */
+    margin-bottom: 10px;
+}
+
+.result-container p {
+    font-size: 0.8em; /* you can go lower like 0.95em if still too big */
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    background-color: #C71585;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #921062;
+}
+
+
+
+/* Footer styling */
+.site-footer {
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    background-color: #000000;
+    margin-top: 30px;
+}
+
+
+
+
+/* tablet size */
+@media (min-width: 768px) {
+/* Hide hamburger menu and checkbox on desktop */
+.ham {
+    display: none; /* This hides the hamburger menu and checkbox on desktop */
+}
+
+/* styling for the main header/nav bar on the main page, index.html */
+.header-container {
+    display: flex; /* flexbox */
+    position: fixed; /* stays fixed at the top of the page while scrolling */
+    top: 0;
+    left: 0; /* at the very top of the page */
+    width: 100%; /* covers all page */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    /* background-color: rgba(0, 0, 0, 0.5); this gives me a 50% transparent background which is what I want because of the glass and video - got help from w3schools */
+    color: #ffffff;
+    /* font-weight: bold; */
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    z-index: 999; /* will place the element at a higher stack order */
+    box-shadow: 1px 10px 10px rgba(1, 1, 1, 0.3); /* I wanted a shadow so my nav looks more 3D/interactive */
+    padding: 0 20px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: nowrap; /* without this, nav links go below navigation*/
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo styling */
+.logo {
+    display: block;
+    z-index: 9999; /* ensures the element is at the top layer, visible in front of other elements */
+    /* max-width: 100px; won't get any bigger than this */
+    width: 130px;
+    height: auto;
+    /* margin: 16px 16px; */
+    margin-right: auto;
+    margin: 0 auto;
+    margin-left: 0; /* Ensures logo stays on the left side */
+}
+
+.nav-links {
+    display: flex !important; /* flexbox - !imprtant needs to be there because it won't display otherwise and idk why */
+    justify-content: flex-end;
+    z-index: 1000;
+    margin: 0;
+    gap: 0;
+    padding: 0;
+}
+
+.nav-links ul {
+    display: flex; /* flexbox */
+    justify-content: flex-end;
+    text-align: end !important;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none; /* no decoration */
+    padding: 16px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 16px;
+}
+
+.nav-links li:hover {
+    background-color: #C71585;
+    border-radius: 10px;
+}
+
+.nav-links li.active a {
+    color: #C71585;
+    font-weight: bolder;
+}
+
+/* skip menu styling so that it is not visible */
+.skip-link {
+    position: absolute;
+    top: -10000px; /* Off-screen */
+    left: 0;
+    padding: 10px;
+    text-decoration: none;
+    z-index: 1001; /* Ensuring it's above all other elements */
+}
+
+/* only visible when pressing tab */
+.skip-link:focus {
+    top: 20px; /* Adjust to position it at the top of the page */
+    left: 20px; /* Adjust for spacing from the left */
+    font-weight: bold;
+    text-decoration: underline; /* underlines it */
+    background-color: #000000; /* for better visibility */
+    color: #ffffff; /* visibility */
+}
+
+#title-page {
+    width: 100%; /* full width */
+    height: 100vh; /* visible area of the browser window - I want this div the entire height of the screen */
+    position: relative;
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* in the middle */
+    margin-bottom: 0px;
+}
+
+/* glass images styling */
+#glassTop, #glassBottom {
+    display: block;
+    position: absolute;
+    width: 100%; /* full width */
+    left: 0;
+    z-index: -1; /* set to -1 so that it is behind the text, but above the video */
+}
+
+#glassTop {
+    top: 30px; /* Need it down a bit so the nav bar is not blocking the view */
+}
+
+#glassBottom {
+    bottom: 0; /* at bottom of the div - line up with bottom of the video */
+}
+
+#glassTop img, #glassBottom img {
+    display: block;
+    width: 100%; /* full width */
+    height: auto;
+}
+
+/* Arcane letter styling - on top of the video */
+.mainContent {
+    text-align: center; /* centered horizontally */
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* lines up in the middle */
+}
+
+#letters {
+    width: 45%; /* makes it only take up 45% of the mainContent width */
+    display: flex; /* flexbox */
+    justify-content: center; /* centered vertically */
+}
+
+/* league of legends logo styling */
+#lolLogo {
+    width: 20%; /* makes it only take up 20% of the mainContent width */
+    margin: 20px 0 20px 0;
+}
+
+/* video styling */
+.trailer {
+    position: absolute; /* I need it to go behind other content */
+    top: 0;
+    left: 0; /* top left corner */
+    width: 100%; /* full width */
+    height: 100%; /* full height */
+    object-fit: cover; /* fill without distorting */
+    z-index: -2; /* behind everything else */
+}
+
+.home-title {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+#synopsis-section {
+    background-color: #332332; /* going for the Arcane color palette - dark, moody purple to portray angst and mystery */
+    color: #ffffff;
+    width: 100%; /* full width */
+    padding: 40px;
+    display: flex; /* flexbox */
+    justify-content: center;
+    align-items: center;
+}
+
+.synopsis-container {
+    max-width: 100%;
+    width: 90%; /* I don't want it to go the full width */
+    line-height: 1.6;
+    text-align: center; /* keeps the text flush left */
+}
+
+.synopsis-container h2 {
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.7em;
+    /* border-bottom: 2px solid #910060; creates a bold underline */
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.synopsis-container ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-position: outside; /* specifies the position of the marker (i.e., bullet point) */
+}
+
+/* Card section styling */
+.exploreh2 {
+    color: #CCCCCC;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.7em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+#cards-section {
+    background-color: #332332; /* Arcane color palette */
+    padding: 60px 20px;
+    display: grid; /* grid */
+    grid-template-columns: 2fr;
+    justify-content: center;
+}
+
+/* Container for the cards */
+.cards-container {
+    background-color: #332332; /* Arcane color palette */
+    display: grid; /* flexbox */
+    justify-content: center;
+    gap: 20px; /* gap between each card */
+    flex-wrap: wrap; /* If the container isn’t wide enough to fit all 3 cards, they’ll move onto a new line instead of overflowing/shrinking. */
+}
+
+/* card styling => each card has the same styling, but their background images are different, so I had to name them all seperate */
+.character-card, .divedeeper-card, .quiz-card {
+    width: 300px; /* set width of the card */
+    height: 400px; /* set height of the card */
+    border-radius: 16px; /* curved */
+    color: #ffffff; /* white text */
+    text-decoration: none;
+    display: flex; /* flexbox */
+    flex-direction: column;
+    justify-content: flex-end; /* ensures text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden; /* hides any content that spills outside the card's edges */
+    box-shadow: 0 4px 12px #260e2b; /* I wanted a slight shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box-shadow is 0.3s and it eases into it - makes the hover/'pop out' transition smoother - got help from w3schools */
+}
+
+.character-card:hover, .divedeeper-card:hover, .quiz-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.character-card h3, .divedeeper-card h3, .quiz-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bolder;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.character-card p, .divedeeper-card p, .quiz-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards - got help from stackoverflow */
+.character-card::before, .divedeeper-card::before, .quiz-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts the gradient above image but below text */
+    border-radius: 16px;
+}
+
+.character-card {
+    background-image: url("../images/mask.jpg"); /* image for my character page link card */
+}
+
+.divedeeper-card {
+    background-image: url("../images/peopleandcore.jpeg"); /* image for my Dive Deeper page link card */
+}
+
+.quiz-card {
+    background-image: url("../images/quizimage.webp"); /* image for my Quiz page link card */
+}
+
+/* Ensure text is above the gradient */
+.character-card h3, .character-card p, .divedeeper-card h3, .divedeeper-card p, .quiz-card h3, .quiz-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+
+
+/* Other pages main styling */
+#other-main {
+    padding-top: 100px; /* Adjust based on nav height */
+}
+
+
+
+/* Character page styling */
+.charactersh1 {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+/* Section styling */
+#character-cards-section {
+    background-color: #332332;
+    padding: 40px 20px;
+    display: grid; /* grid */
+    grid-template-columns: 2fr;
+    justify-content: center;
+}
+
+/* Container for the cards */
+.character-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns repeating */
+    gap: 20px; /* gap between the cards */
+    justify-items: center;
+    width: 100%;
+    max-width: 1000px; /* no wider than this */
+    margin: 0 auto;
+}
+
+/* card styling */
+/* each card has the same styling, but their background images are different, so I had to name them all seperate */
+.jinx-card, .vi-card, .vander-card, .silco-card, .jayce-card, .viktor-card, .heimerdinger-card, .ekko-card, .mel-card,
+.caitlyn-card, .sevika-card, .isha-card, .ambessa-card, .maddie-card, .singed-card {
+    width: 300px;
+    height: 400px;
+    border-radius: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+.jinx-card:hover, .vi-card:hover, .vander-card:hover, .silco-card:hover, .jayce-card:hover, .viktor-card:hover, .heimerdinger-card:hover,
+.ekko-card:hover, .mel-card:hover, .caitlyn-card:hover, .sevika-card:hover, .isha-card:hover, .ambessa-card:hover,
+.maddie-card:hover, .singed-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.jinx-card h3, .vi-card h3, .vander-card h3, .silco-card h3, .jayce-card h3, .viktor-card h3, .heimerdinger-card h3, .ekko-card h3, .mel-card h3,
+.caitlyn-card h3, .sevika-card h3, .isha-card h3, .ambessa-card h3, .maddie-card h3, .singed-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 16px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards */
+.jinx-card::before, .vi-card::before, .vander-card::before, .silco-card::before, .jayce-card::before, .viktor-card::before, .heimerdinger-card::before,
+.ekko-card::before, .mel-card::before, .caitlyn-card::before, .sevika-card::before, .isha-card::before, .ambessa-card::before,
+.maddie-card::before, .singed-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts gradient above image but below text */
+    border-radius: 16px;
+}
+
+/* paths to the 15 character images */
+.jinx-card {
+    background-image: url("../images/jinx.jpg");
+}
+
+.vi-card {
+    background-image: url("../images/vi.jpg");
+}
+
+.vander-card {
+    background-image: url("../images/vander.jpg");
+}
+
+.silco-card {
+    background-image: url("../images/silco.jpg");
+}
+
+.jayce-card {
+    background-image: url("../images/jayce.jpg");
+}
+
+.viktor-card {
+    background-image: url("../images/viktor.jpg");
+}
+
+.ekko-card {
+    background-image: url("../images/ekko.jpg");
+}
+
+.heimerdinger-card {
+    background-image: url("../images/heimerdinger.jpg");
+}
+
+.mel-card {
+    background-image: url("../images/mel2.jpg");
+}
+
+.caitlyn-card {
+    background-image: url("../images/caitlyn.jpg");
+}
+
+.sevika-card {
+    background-image: url("../images/sevika.jpg");
+}
+
+.isha-card {
+    background-image: url("../images/isha.jpg");
+}
+
+.ambessa-card {
+    background-image: url("../images/ambessa.jpg");
+}
+
+.maddie-card {
+    background-image: url("../images/maddie.jpg");
+}
+
+.singed-card {
+    background-image: url("../images/singed.jpg");
+}
+
+/* Ensure text is above the gradient overlay */
+.jinx-card h3, .vi-card h3, .vander-card h3, .silco-card h3, .jayce-card h3, .viktor-card h3, .heimerdinger-card h3, .ekko-card h3, .mel-card h3,
+.caitlyn-card h3, .sevika-card h3, .isha-card h3, .ambessa-card h3, .maddie-card h3, .singed-card h3, .jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+/* Best viewed at 1200 and in that range  */
+
+
+/* analysis page styling */
+.analysis-main {
+    padding-top: 100px; /* Adjusted based on nav height */
+}
+
+.analysish1 {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+.analysis-title {
+    text-align: center;
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.4em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.analysis-cards-container {
+    display: grid;
+    grid-template-columns: repeat(1fr); /* 1 column repeating */
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+    width: 100%; /* full width of screen */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sisters-card, .theme-card, .visuals-card, .science-card, .trauma-card, .divide-card, .power-card, .innovation-card, .revolution-card {
+    width: 100%;
+    width: 730px; /* Set a fixed width for all cards */
+    max-width: 730px;
+    height: 300px; /* Set a fixed height for all cards */
+    text-align: start;
+    border-radius: 16px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 20px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* changes the cursor to a hand icon */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+/* Make the link area fill the entire card */
+.card-link {
+    display: block;
+    text-decoration: none; /* Remove default link underline */
+}
+
+/* Remove underline for visited links */
+.card-link:visited {
+    text-decoration: none; /* Ensure visited links also don't have an underline */
+}
+
+.sisters-card:hover, .theme-card:hover, .visuals-card:hover, .science-card:hover, .trauma-card:hover, .divide-card:hover, .power-card:hover,
+.innovation-card:hover, .revolution-card:hover {
+    transform: scale(1.03); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+.sisters-card h3, .theme-card h3, .visuals-card h3, .science-card h3, .trauma-card h3, .divide-card h3, .power-card h3, .innovation-card h3,
+.revolution-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-size: 31.2px; /* even though I had h3 set to 1.5em, these h3's kept having a size of 37.4, so I set their size to the other h3's*/
+}
+
+.sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    margin: 5px 0 0;
+    font-size: 1rem; /* 16px */
+}
+
+/* Individual background images for the cards */
+.sisters-card {
+    background-image: url("../images/jinxvsVI.jpg");
+}
+
+.theme-card {
+    background-image: url("../images/mural.jpg");
+}
+
+.visuals-card {
+    background-image: url("../images/wallArt.jpeg");
+}
+
+.science-card {
+    background-image: url("../images/bluesparkles.jpeg");
+}
+
+.trauma-card {
+    background-image: url("../images/powdercrying.jpg");
+}
+
+.divide-card {
+    background-image: url("../images/cityoverlook.jpg");
+}
+
+.power-card {
+    background-image: url("../images/melcity.jpeg");
+}
+
+.innovation-card {
+    background-image: url("../images/core.avif");
+}
+
+.revolution-card {
+    background-image: url("../images/rebellion.jpg");
+}
+
+.sisters-card::before, .theme-card::before, .visuals-card::before, .science-card::before, .trauma-card::before, .divide-card::before,
+.power-card::before, .innovation-card::before, .revolution-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* below text but above gradiant */
+    border-radius: 16px;
+}
+
+.sisters-card h3, .theme-card h3, .visuals-card h3, .science-card h3, .trauma-card h3, .divide-card h3, .power-card h3, .innovation-card h3,
+.revolution-card h3, .sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    position: relative;
+    z-index: 2; /* above gradiant */
+}
+
+.analysis-img {
+    max-width: 500px;
+}
+
+/* siblings bond page */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* a repeat of a 3 column grid */
+    gap: 20px; /* gap between items */
+    padding: 30px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px; /* curved corners */
+    object-fit: cover; /* makes background cover the whole section - got help from developer.mozilla.org */
+}
+
+.caption-title {
+    font-size: 1.1em;
+}
+
+/* Style for the text blocks in the grid (after 3 pictures) */
+.stage-text {
+    grid-column: span 3; /* spans all three columns */
+    background-color: #19131b; /* dark background for contrast - staying on the purple theme */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px; /* curved corners */
+    font-size: 1em; /* 16px */
+    line-height: 1.6;
+    box-shadow: 0 4px 12px #260e2b; /* shadow */
+}
+
+.summary {
+    padding: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+/* quiz page styling */
+.question-page {
+    display: none; /* question pages (hidden by default) because I want 1 question on each page */
+}
+
+.quiz-screen {
+    display: none;
+    flex-direction: column; /* when it's displayed = vertical */
+    align-items: center; /* in the center of the screen */
+    justify-content: center; /* in the center of the screen */
+    min-height: 100vh; /* fills the screen */
+    text-align: center; /* centered text */
+}
+
+.quiz-screen.active {
+    display: flex; /* when displayed, flexbox */
+}
+
+.question-page h2 {
+    font-size: 1.6em; /* changed size */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Results container */
+.result-container {
+    display: none; /* result page is hidden by default */
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #C71585; /* matching the buttons to the nav bar color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer; /* when cursor is on button = hand/pointer */
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px; /* curved edges */
+}
+
+button:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+.quiz-def {
+    padding: 30px; /* I didn't want it up against the sides */
+}
+
+/* matching the button to the next button color/style */
+.submit-btn {
+    background-color: #C71585;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+label {
+    margin-bottom: 10px; /* adds 10 pixels of space below each label */
+    display: block;
+    font-size: 1.2em;
+}
+
+input[type="radio"] {
+    transform: scale(1.5); /* scale it up */
+    margin-right: 10px; /* I wanted some room between the radio button and the label text */
+}
+
+.quiz-screen, .question-page, .result-page {
+    display: none; /* hidden by default */
+}
+
+.quiz-screen.active, .question-page.active, .result-page.active {
+    display: flex; /* when active, flexbox display */
+    flex-direction: column; /* vertical */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* takes up whole screen */
+    text-align: center;
+}
+
+.result-container {
+    display: none; /* Initially hidden */
+    font-size: 1.5em;
+    padding: 30px;
+}
+
+.result-container.active {
+    display: block; /* Show when active */
+}
+
+.result-container img {
+    max-width: 50%; /* can only get this big */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;  /* Adds space below the image */
+}
+
+.result-container h3 {
+    font-size: 1.2em; /* smaller than default h3 */
+    margin-bottom: 10px;
+}
+
+.result-container p {
+    font-size: 0.8em; /* you can go lower like 0.95em if still too big */
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+/* match styling to others */
+#restartQuizBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #C71585; /* matching the color to the other buttons */
+    color: white;
+    border: none;
+    cursor: pointer; /* when mouse is on button = pointer */
+}
+
+#restartQuizBtn:hover {
+    background-color: #921062; /* when hovered over, it gets darker */
+}
+}
+
+
+
+@media (min-width: 1000px) {
+
+/* Hide hamburger menu and checkbox on desktop */
+.ham {
+    display: none; /* This hides the hamburger menu and checkbox on desktop */
+}
+
+/* styling for the main header/nav bar on the main page, index.html */
+.header-container {
+    display: flex; /* flexbox */
+    position: fixed; /* stays fixed at the top of the page while scrolling */
+    top: 0;
+    left: 0; /* at the very top of the page */
+    width: 100%; /* covers all page */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    /* background-color: rgba(0, 0, 0, 0.5); this gives me a 50% transparent background which is what I want because of the glass and video - got help from w3schools */
+    color: #ffffff;
+    /* font-weight: bold; */
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    z-index: 999; /* will place the element at a higher stack order */
+    box-shadow: 1px 10px 10px rgba(1, 1, 1, 0.3); /* I wanted a shadow so my nav looks more 3D/interactive */
+    padding: 0 20px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: nowrap; /* without this, nav links go below navigation*/
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo styling */
+.logo {
+    display: block;
+    z-index: 9999; /* ensures the element is at the top layer, visible in front of other elements */
+    /* max-width: 100px; won't get any bigger than this */
+    width: 130px;
+    height: auto;
+    /* margin: 16px 16px; */
+    margin-right: auto;
+    margin: 0 auto;
+    margin-left: 0; /* Ensures logo stays on the left side */
+}
+
+.nav-links {
+    display: flex !important; /* flexbox - !imprtant needs to be there because it won't display otherwise and idk why */
+    justify-content: flex-end;
+    z-index: 1000;
+    margin: 0;
+    gap: 0;
+    padding: 0;
+}
+
+.nav-links ul {
+    display: flex; /* flexbox */
+    justify-content: flex-end;
+    text-align: end !important;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none; /* no decoration */
+    padding: 16px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 16px;
+}
+
+.nav-links li:hover {
+    background-color: #C71585;
+    border-radius: 10px;
+}
+
+.nav-links li.active a {
+    color: #C71585;
+    font-weight: bolder;
+}
+
+/* skip menu styling so that it is not visible */
+.skip-link {
+    position: absolute;
+    top: -10000px; /* Off-screen */
+    left: 0;
+    padding: 10px;
+    text-decoration: none;
+    z-index: 1001; /* Ensuring it's above all other elements */
+}
+
+/* only visible when pressing tab */
+.skip-link:focus {
+    top: 20px; /* Adjust to position it at the top of the page */
+    left: 20px; /* Adjust for spacing from the left */
+    font-weight: bold;
+    text-decoration: underline; /* underlines it */
+    background-color: #000000; /* for better visibility */
+    color: #ffffff; /* visibility */
+}
+
+#title-page {
+    width: 100%; /* full width */
+    height: 100vh; /* visible area of the browser window - I want this div the entire height of the screen */
+    position: relative;
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* in the middle */
+    margin-bottom: 0px;
+}
+
+/* glass images styling */
+#glassTop, #glassBottom {
+    display: block;
+    position: absolute;
+    width: 100%; /* full width */
+    left: 0;
+    z-index: -1; /* set to -1 so that it is behind the text, but above the video */
+}
+
+#glassTop {
+    top: 30px; /* Need it down a bit so the nav bar is not blocking the view */
+}
+
+#glassBottom {
+    bottom: 0; /* at bottom of the div - line up with bottom of the video */
+}
+
+#glassTop img, #glassBottom img {
+    display: block;
+    width: 100%; /* full width */
+    height: auto;
+}
+
+/* Arcane letter styling - on top of the video */
+.mainContent {
+    text-align: center; /* centered horizontally */
+    display: flex; /* flexbox */
+    flex-direction: column; /* vertical */
+    justify-content: center; /* centered vertically */
+    align-items: center; /* lines up in the middle */
+}
+
+#letters {
+    width: 45%; /* makes it only take up 45% of the mainContent width */
+    display: flex; /* flexbox */
+    justify-content: center; /* centered vertically */
+}
+
+/* league of legends logo styling */
+#lolLogo {
+    width: 20%; /* makes it only take up 20% of the mainContent width */
+    margin: 20px 0 20px 0;
+}
+
+/* video styling */
+.trailer {
+    position: absolute; /* I need it to go behind other content */
+    top: 0;
+    left: 0; /* top left corner */
+    width: 100%; /* full width */
+    height: 100%; /* full height */
+    object-fit: cover; /* fill without distorting */
+    z-index: -2; /* behind everything else */
+}
+
+.home-title {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+#synopsis-section {
+    background-color: #332332; /* going for the Arcane color palette - dark, moody purple to portray angst and mystery */
+    color: #ffffff;
+    width: 100%; /* full width */
+    padding: 40px;
+    display: flex; /* flexbox */
+    justify-content: center;
+    align-items: center;
+}
+
+.synopsis-container {
+    max-width: 100%;
+    width: 90%; /* I don't want it to go the full width */
+    line-height: 1.6;
+    text-align: center; /* keeps the text flush left */
+}
+
+.synopsis-container h2 {
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.7em;
+    /* border-bottom: 2px solid #910060; creates a bold underline */
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.synopsis-container ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-position: outside; /* specifies the position of the marker (i.e., bullet point) */
+}
+
+/* Card section styling */
+.exploreh2 {
+    color: #CCCCCC;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.7em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+#cards-section {
+    background-color: #332332; /* Arcane color palette */
+    padding: 60px 20px;
+    display: flex; /* flexbox */
+    justify-content: center;
+}
+
+/* Container for the cards */
+.cards-container {
+    background-color: #332332; /* Arcane color palette */
+    display: flex; /* flexbox */
+    justify-content: center;
+    gap: 20px; /* gap between each card */
+    flex-wrap: wrap; /* If the container isn’t wide enough to fit all 3 cards, they’ll move onto a new line instead of overflowing/shrinking. */
+}
+
+/* card styling => each card has the same styling, but their background images are different, so I had to name them all seperate */
+.character-card, .divedeeper-card, .quiz-card {
+    width: 300px; /* set width of the card */
+    height: 400px; /* set height of the card */
+    border-radius: 16px; /* curved */
+    color: #ffffff; /* white text */
+    text-decoration: none;
+    display: flex; /* flexbox */
+    flex-direction: column;
+    justify-content: flex-end; /* ensures text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden; /* hides any content that spills outside the card's edges */
+    box-shadow: 0 4px 12px #260e2b; /* I wanted a slight shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box-shadow is 0.3s and it eases into it - makes the hover/'pop out' transition smoother - got help from w3schools */
+}
+
+.character-card:hover, .divedeeper-card:hover, .quiz-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.character-card h3, .divedeeper-card h3, .quiz-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bolder;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.character-card p, .divedeeper-card p, .quiz-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards - got help from stackoverflow */
+.character-card::before, .divedeeper-card::before, .quiz-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts the gradient above image but below text */
+    border-radius: 16px;
+}
+
+.character-card {
+    background-image: url("../images/mask.jpg"); /* image for my character page link card */
+}
+
+.divedeeper-card {
+    background-image: url("../images/peopleandcore.jpeg"); /* image for my Dive Deeper page link card */
+}
+
+.quiz-card {
+    background-image: url("../images/quizimage.webp"); /* image for my Quiz page link card */
+}
+
+/* Ensure text is above the gradient */
+.character-card h3, .character-card p, .divedeeper-card h3, .divedeeper-card p, .quiz-card h3, .quiz-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+
+
+/* Other pages main styling */
+#other-main {
+    padding-top: 100px; /* Adjust based on nav height */
+}
+
+
+
+/* Character page styling */
+.charactersh1 {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+/* Section styling */
+#character-cards-section {
+    background-color: #332332;
+    padding: 40px 20px;
+    display: flex; /* flexbox */
+    justify-content: center;
+}
+
+/* Container for the cards */
+.character-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns repeating */
+    gap: 20px; /* gap between the cards */
+    justify-items: center;
+    width: 100%;
+    max-width: 1000px; /* no wider than this */
+    margin: 0 auto;
+}
+
+/* card styling */
+/* each card has the same styling, but their background images are different, so I had to name them all seperate */
+.jinx-card, .vi-card, .vander-card, .silco-card, .jayce-card, .viktor-card, .heimerdinger-card, .ekko-card, .mel-card,
+.caitlyn-card, .sevika-card, .isha-card, .ambessa-card, .maddie-card, .singed-card {
+    width: 300px;
+    height: 400px;
+    border-radius: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 16px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+.jinx-card:hover, .vi-card:hover, .vander-card:hover, .silco-card:hover, .jayce-card:hover, .viktor-card:hover, .heimerdinger-card:hover,
+.ekko-card:hover, .mel-card:hover, .caitlyn-card:hover, .sevika-card:hover, .isha-card:hover, .ambessa-card:hover,
+.maddie-card:hover, .singed-card:hover {
+    transform: scale(1.05); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+/* Text inside the card */
+.jinx-card h3, .vi-card h3, .vander-card h3, .silco-card h3, .jayce-card h3, .viktor-card h3, .heimerdinger-card h3, .ekko-card h3, .mel-card h3,
+.caitlyn-card h3, .sevika-card h3, .isha-card h3, .ambessa-card h3, .maddie-card h3, .singed-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000; /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+.jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 16px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* wanted it to pop from the picture more - got help from w3schools */
+}
+
+/* Gradient overlay on individual cards */
+.jinx-card::before, .vi-card::before, .vander-card::before, .silco-card::before, .jayce-card::before, .viktor-card::before, .heimerdinger-card::before,
+.ekko-card::before, .mel-card::before, .caitlyn-card::before, .sevika-card::before, .isha-card::before, .ambessa-card::before,
+.maddie-card::before, .singed-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); Fade to black at the bottom */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* puts gradient above image but below text */
+    border-radius: 16px;
+}
+
+/* paths to the 15 character images */
+.jinx-card {
+    background-image: url("../images/jinx.jpg");
+}
+
+.vi-card {
+    background-image: url("../images/vi.jpg");
+}
+
+.vander-card {
+    background-image: url("../images/vander.jpg");
+}
+
+.silco-card {
+    background-image: url("../images/silco.jpg");
+}
+
+.jayce-card {
+    background-image: url("../images/jayce.jpg");
+}
+
+.viktor-card {
+    background-image: url("../images/viktor.jpg");
+}
+
+.ekko-card {
+    background-image: url("../images/ekko.jpg");
+}
+
+.heimerdinger-card {
+    background-image: url("../images/heimerdinger.jpg");
+}
+
+.mel-card {
+    background-image: url("../images/mel2.jpg");
+}
+
+.caitlyn-card {
+    background-image: url("../images/caitlyn.jpg");
+}
+
+.sevika-card {
+    background-image: url("../images/sevika.jpg");
+}
+
+.isha-card {
+    background-image: url("../images/isha.jpg");
+}
+
+.ambessa-card {
+    background-image: url("../images/ambessa.jpg");
+}
+
+.maddie-card {
+    background-image: url("../images/maddie.jpg");
+}
+
+.singed-card {
+    background-image: url("../images/singed.jpg");
+}
+
+/* Ensure text is above the gradient overlay */
+.jinx-card h3, .vi-card h3, .vander-card h3, .silco-card h3, .jayce-card h3, .viktor-card h3, .heimerdinger-card h3, .ekko-card h3, .mel-card h3,
+.caitlyn-card h3, .sevika-card h3, .isha-card h3, .ambessa-card h3, .maddie-card h3, .singed-card h3, .jinx-card p, .vi-card p, .vander-card p, .silco-card p, .jayce-card p, .viktor-card p, .heimerdinger-card p, .ekko-card p, .mel-card p,
+.caitlyn-card p, .sevika-card p, .isha-card p, .ambessa-card p, .maddie-card p, .singed-card p {
+    position: relative;
+    z-index: 2; /* Brings text above the gradient */
+}
+
+/* Best viewed at 1200 and in that range  */
+
+
+/* analysis page styling */
+.analysis-main {
+    padding-top: 100px; /* Adjusted based on nav height */
+}
+
+.analysish1 {
+    text-align: center; /* center horizontally */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* color: #C72CA2; Going for the Arcane color palette - brighter color for headers */
+    color: #1E90FF;
+    font-size: 2.2em; /* Had to enlarge size since it's main title of page - h1 */
+
+    /* Glow effect - got help from w3schools */
+    text-shadow: 0 0 4px #00BFFF;
+    /* text-shadow: 0 0 2px #CCCCCC; */
+}
+
+.analysis-title {
+    text-align: center;
+    color: #CCCCCC;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.4em;
+    text-shadow: 0 0 2px #1E90FF; /* Glow effect - got help from w3schools */
+}
+
+.analysis-cards-container {
+    display: grid;
+    grid-template-columns: repeat(1fr); /* 1 column repeating */
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+    width: 100%; /* full width of screen */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sisters-card, .theme-card, .visuals-card, .science-card, .trauma-card, .divide-card, .power-card, .innovation-card, .revolution-card {
+    width: 100%;
+    width: 800px; /* Set a fixed width for all cards */
+    max-width: 800px;
+    height: 300px; /* Set a fixed height for all cards */
+    text-align: start;
+    border-radius: 16px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* ensures that the text is at the bottom of the card */
+    padding: 20px;
+    background-size: cover; /* makes the background image cover the whole card - got help from developer.mozilla.org */
+    background-position: center; /* centers the image - got help from developer.mozilla.org */
+    background-repeat: no-repeat; /* prevents the background from repeating - got help from developer.mozilla.org */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* changes the cursor to a hand icon */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px #260e2b; /* shadow for non-hover state as well */
+    transition: transform 0.3s ease; /* box shadow takes 0.3s to ease into it - makes the hover/'pop out' transition smoother => got help from w3schools */
+}
+
+/* Make the link area fill the entire card */
+.card-link {
+    display: block;
+    text-decoration: none; /* Remove default link underline */
+}
+
+/* Remove underline for visited links */
+.card-link:visited {
+    text-decoration: none; /* Ensure visited links also don't have an underline */
+}
+
+.sisters-card:hover, .theme-card:hover, .visuals-card:hover, .science-card:hover, .trauma-card:hover, .divide-card:hover, .power-card:hover,
+.innovation-card:hover, .revolution-card:hover {
+    transform: scale(1.03); /* Makes the card grow by 5% in both width and height - got help form w3schools */
+    box-shadow: 0 10px 24px #34133a; /* the shadow is lighter than the one above */
+}
+
+.sisters-card h3, .theme-card h3, .visuals-card h3, .science-card h3, .trauma-card h3, .divide-card h3, .power-card h3, .innovation-card h3,
+.revolution-card h3 {
+    margin: 0;
+    color: #ac5ea7;
+    font-size: 31.2px; /* even though I had h3 set to 1.5em, these h3's kept having a size of 37.4, so I set their size to the other h3's*/
+}
+
+.sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    margin: 5px 0 0;
+    font-size: 1rem; /* 16px */
+}
+
+/* Individual background images for the cards */
+.sisters-card {
+    background-image: url("../images/jinxvsVI.jpg");
+}
+
+.theme-card {
+    background-image: url("../images/mural.jpg");
+}
+
+.visuals-card {
+    background-image: url("../images/wallArt.jpeg");
+}
+
+.science-card {
+    background-image: url("../images/bluesparkles.jpeg");
+}
+
+.trauma-card {
+    background-image: url("../images/powdercrying.jpg");
+}
+
+.divide-card {
+    background-image: url("../images/cityoverlook.jpg");
+}
+
+.power-card {
+    background-image: url("../images/melcity.jpeg");
+}
+
+.innovation-card {
+    background-image: url("../images/core.avif");
+}
+
+.revolution-card {
+    background-image: url("../images/rebellion.jpg");
+}
+
+.sisters-card::before, .theme-card::before, .visuals-card::before, .science-card::before, .trauma-card::before, .divide-card::before,
+.power-card::before, .innovation-card::before, .revolution-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); */
+    background-image: linear-gradient(to bottom, transparent, #000000); /* fades by image to black at the bottom so the text is more visible - got help from wordpress.org*/
+    z-index: 1; /* below text but above gradiant */
+    border-radius: 16px;
+}
+
+.sisters-card h3, .theme-card h3, .visuals-card h3, .science-card h3, .trauma-card h3, .divide-card h3, .power-card h3, .innovation-card h3,
+.revolution-card h3, .sisters-card p, .theme-card p, .visuals-card p, .science-card p, .trauma-card p, .divide-card p, .power-card p, .innovation-card p,
+.revolution-card p {
+    position: relative;
+    z-index: 2; /* above gradiant */
+}
+
+.analysis-img {
+    max-width: 500px;
+}
+
+/* siblings bond page */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* a repeat of a 3 column grid */
+    gap: 20px; /* gap between items */
+    padding: 30px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px; /* curved corners */
+    object-fit: cover; /* makes background cover the whole section - got help from developer.mozilla.org */
+}
+
+.caption-title {
+    font-size: 1.1em;
+}
+
+/* Style for the text blocks in the grid (after 3 pictures) */
+.stage-text {
+    grid-column: span 3; /* spans all three columns */
+    background-color: #19131b; /* dark background for contrast - staying on the purple theme */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px; /* curved corners */
+    font-size: 1em; /* 16px */
+    line-height: 1.6;
+    box-shadow: 0 4px 12px #260e2b; /* shadow */
+}
+
+.summary {
+    padding: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+/* quiz page styling */
+.question-page {
+    display: none; /* question pages (hidden by default) because I want 1 question on each page */
+}
+
+.quiz-screen {
+    display: none;
+    flex-direction: column; /* when it's displayed = vertical */
+    align-items: center; /* in the center of the screen */
+    justify-content: center; /* in the center of the screen */
+    min-height: 100vh; /* fills the screen */
+    text-align: center; /* centered text */
+}
+
+.quiz-screen.active {
+    display: flex; /* when displayed, flexbox */
+}
+
+.question-page h2 {
+    font-size: 1.6em; /* changed size */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Results container */
+.result-container {
+    display: none; /* result page is hidden by default */
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #C71585; /* matching the buttons to the nav bar color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer; /* when cursor is on button = hand/pointer */
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px; /* curved edges */
+}
+
+button:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+.quiz-def {
+    padding: 30px; /* I didn't want it up against the sides */
+}
+
+/* matching the button to the next button color/style */
+.submit-btn {
+    background-color: #C71585;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #921062; /* darker when hovered over */
+}
+
+label {
+    margin-bottom: 10px; /* adds 10 pixels of space below each label */
+    display: block;
+    font-size: 1.2em;
+}
+
+input[type="radio"] {
+    transform: scale(1.5); /* scale it up */
+    margin-right: 10px; /* I wanted some room between the radio button and the label text */
+}
+
+.quiz-screen, .question-page, .result-page {
+    display: none; /* hidden by default */
+}
+
+.quiz-screen.active, .question-page.active, .result-page.active {
+    display: flex; /* when active, flexbox display */
+    flex-direction: column; /* vertical */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* takes up whole screen */
+    text-align: center;
+}
+
+.result-container {
+    display: none; /* Initially hidden */
+    font-size: 1.5em;
+    padding: 30px;
+}
+
+.result-container.active {
+    display: block; /* Show when active */
+}
+
+.result-container img {
+    max-width: 50%; /* can only get this big */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;  /* Adds space below the image */
+}
+
+.result-container h3 {
+    font-size: 1.2em; /* smaller than default h3 */
+    margin-bottom: 10px;
+}
+
+.result-container p {
+    font-size: 0.8em; /* you can go lower like 0.95em if still too big */
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+/* match styling to others */
+#restartQuizBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #C71585; /* matching the color to the other buttons */
+    color: white;
+    border: none;
+    cursor: pointer; /* when mouse is on button = pointer */
+}
+
+#restartQuizBtn:hover {
+    background-color: #921062; /* when hovered over, it gets darker */
+}
+}
